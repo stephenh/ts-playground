@@ -1,5 +1,5 @@
 module.exports = {
-  transform: { "^.+\\.tsx?$": "@swc/jest" },
+  transform: { "^.+\\.tsx?$": "ts-jest" },
   moduleNameMapper: {
     "^@src/(.*)": "<rootDir>/src/$1",
     "^src/(.*)": "<rootDir>/src/$1",
@@ -8,4 +8,8 @@ module.exports = {
   testEnvironment: "node",
   maxConcurrency: 1,
   resetMocks: true,
+  extensionsToTreatAsEsm: [".ts"],
+  globals: {
+    "ts-jest": { isolatedModules: true, useESM: true }
+  }
 };
